@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sandesh Top Deals — Smart Shopping & Best Affiliate Offers</title>
+  <meta name="description" content="Sandesh Top Deals — curated deals across mens, womens, electronics, kids & more. Compare prices and buy through affiliate links." />
+  <meta name="keywords" content="affiliate, deals, shopping, discounts, electronics, fashion, amazon" />
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Structured data (json-ld) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Sandesh Top Deals",
+    "url": "https://example.com",
+    "description": "Curated deals across categories. Affiliate links may earn us a commission.",
+    "sameAs": []
+  }
+  </script>
+</head>
+
+<body>
+  <!-- 3D animated background + subtle floating shapes -->
+  <div class="bg-3d" aria-hidden="true">
+    <div class="bg-layer"></div>
+    <div class="bg-shapes" aria-hidden="true">
+      <span class="shape s1"></span>
+      <span class="shape s2"></span>
+      <span class="shape s3"></span>
+      <span class="shape s4"></span>
+    </div>
+  </div>
+
+  <!-- App wrapper -->
+  <div id="app" class="app">
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="logo" href="#" aria-label="Sandesh Top Deals">Sandesh Top Deals</a>
+
+        <!-- Navigation -->
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <ul>
+            <li><a href="#mens" class="nav-link">Mens</a></li>
+            <li><a href="#womens" class="nav-link">Womens</a></li>
+            <li><a href="#electronics" class="nav-link">Electronics</a></li>
+            <li><a href="#kids" class="nav-link">Kids</a></li>
+            <li><a href="#all" class="nav-link">All</a></li>
+          </ul>
+        </nav>
+
+        <!-- Search & actions -->
+        <div class="header-actions">
+          <div class="search" role="search">
+            <label for="searchInput" class="visually-hidden">Search products</label>
+            <input id="searchInput" type="search" placeholder="Search products, brands..." aria-label="Search products">
+            <button id="clearSearch" aria-label="Clear search" title="Clear search"><i class="bx bx-x"></i></button>
+          </div>
+
+          <div class="control">
+            <label for="categorySelect" class="visually-hidden">Filter by category</label>
+            <select id="categorySelect" aria-label="Filter by category">
+              <option value="all">All Categories</option>
+              <option value="mens">Mens</option>
+              <option value="womens">Womens</option>
+              <option value="electronics">Electronics</option>
+              <option value="kids">Kids</option>
+            </select>
+          </div>
+
+          <div class="control">
+            <label for="sortSelect" class="visually-hidden">Sort products</label>
+            <select id="sortSelect" aria-label="Sort products">
+              <option value="relevance">Sort: Relevance</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main id="main" class="main" role="main">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1>Shop Smart, Save Big</h1>
+            <p>Curated deals on top brands. Honest picks, verified affiliate links — no extra cost to you.</p>
+            <a class="btn primary" href="#all">Browse Deals</a>
+          </div>
+          <figure class="hero-image" aria-hidden="true">
+            <!-- decorative SVG / illustration -->
+            <svg width="360" height="240" viewBox="0 0 360 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="0" y="0" width="360" height="240" rx="16" fill="url(#g)"/>
+              <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff9a9e"/><stop offset="1" stop-color="#fad0c4"/></linearGradient></defs>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Products section (dynamic) -->
+      <section id="all" class="products-section container" aria-labelledby="productsHeading">
+        <h2 id="productsHeading">All Products</h2>
+
+        <!-- Live results info -->
+        <div class="results-bar">
+          <div id="resultsCount" class="results-count" aria-live="polite">Showing 0 products</div>
+          <div class="results-controls">
+            <button id="resetFilters" class="btn subtle">Reset</button>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="productGrid" class="product-grid" tabindex="-1" aria-live="polite">
+          <!-- Products populated by script.js -->
+        </div>
+
+        <!-- Pagination (simple) -->
+        <div id="pager" class="pager" aria-label="Pagination">
+          <button id="prevPage" class="btn subtle" disabled aria-disabled="true">Prev</button>
+          <span id="pageInfo" class="page-info">Page 1</span>
+          <button id="nextPage" class="btn subtle">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <div>
+          <h3>Sandesh Top Deals</h3>
+          <p>We may earn a commission from affiliate links at no extra cost to you. Prices shown are indicative; check retailer for current price.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year"></span> Sandesh Top Deals</div>
+    </footer>
+  </div>
+
+  <!-- Product detail modal -->
+  <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-panel">
+      <button id="closeModal" class="modal-close" aria-label="Close product details"><i class="bx bx-x"></i></button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
